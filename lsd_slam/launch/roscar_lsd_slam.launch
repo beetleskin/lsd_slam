@@ -1,8 +1,8 @@
 <launch>
 
   <!-- run the pointcloud viewer -->
-  <!--node pkg="lsd_slam_viewer" type="viewer" name="viewer" output="screen">
-  </node-->
+  <node pkg="lsd_slam_viewer" type="viewer" name="viewer" output="screen">
+  </node>
 
   <!-- -->
   <node pkg="lsd_slam_core" type="live_slam" name="lsd_slam" output="screen">
@@ -13,8 +13,6 @@
     <param name="cameraPixelNoise" value="12.0"/>
 
     <param name="depthSmoothingFactor" value="5.0"/>
-
-
   </node>
 
   <!-- -->
