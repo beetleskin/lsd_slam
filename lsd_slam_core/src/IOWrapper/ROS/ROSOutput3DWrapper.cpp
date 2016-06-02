@@ -58,6 +58,8 @@ ROSOutput3DWrapper::ROSOutput3DWrapper(int width, int height)
 	pose_channel = nh_.resolveName("lsd_slam/pose");
 	pose_publisher = nh_.advertise<geometry_msgs::PoseStamped>(pose_channel,1);
 
+	map_frame_id = ros::param::param<std::string>("~map_frame_id", "/map");
+
 
 	publishLvl=0;
 }
@@ -155,7 +157,7 @@ void ROSOutput3DWrapper::publishTrackedFrame(Frame* kf)
 	}
 
 	pMsg.header.stamp = ros::Time(kf->timestamp());
-	pMsg.header.frame_id = "world";
+	pMsg.header.frame_id = map_frame_id;
 	pose_publisher.publish(pMsg);
 }
 

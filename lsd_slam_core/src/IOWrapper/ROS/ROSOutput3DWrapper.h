@@ -95,9 +95,10 @@ private:
 	std::string debugInfo_channel;
 	ros::Publisher debugInfo_publisher;
 
-
 	std::string pose_channel;
 	ros::Publisher pose_publisher;
+
+	std::string map_frame_id;
 
 	ros::NodeHandle nh_;
 };

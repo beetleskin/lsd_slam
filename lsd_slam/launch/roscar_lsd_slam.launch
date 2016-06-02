@@ -1,0 +1,23 @@
+<launch>
+
+  <!-- run the pointcloud viewer -->
+  <!--node pkg="lsd_slam_viewer" type="viewer" name="viewer" output="screen">
+  </node-->
+
+  <!-- -->
+  <node pkg="lsd_slam_core" type="live_slam" name="lsd_slam" output="screen">
+    <remap from="image" to="/sensors/stereo_front/left/image_raw" />
+    <remap from="camera_info" to="/sensors/stereo_front/left/camera_info" />
+    <param name="map_frame_id" value="/gps_odom"/>
+    <param name="minUseGrad" value="40.0"/>
+    <param name="cameraPixelNoise" value="12.0"/>
+
+    <param name="depthSmoothingFactor" value="5.0"/>
+
+
+  </node>
+
+  <!-- -->
+  <!--node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure" >
+  </node-->
+</launch>
